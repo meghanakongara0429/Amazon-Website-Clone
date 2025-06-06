@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Amazon-Website-Clone/static/css/main.a622968a.css",
+    "main.js": "/Amazon-Website-Clone/static/js/main.fe902ddc.js",
+    "static/media/dp.png": "/Amazon-Website-Clone/static/media/dp.2bed1118c100fd843f43.png",
+    "static/media/acc.png": "/Amazon-Website-Clone/static/media/acc.a42acdbb0de1317971aa.png",
+    "static/media/logo.jpg": "/Amazon-Website-Clone/static/media/logo.3c01e69683e8d0e61984.jpg",
+    "index.html": "/Amazon-Website-Clone/index.html",
+    "main.a622968a.css.map": "/Amazon-Website-Clone/static/css/main.a622968a.css.map",
+    "main.fe902ddc.js.map": "/Amazon-Website-Clone/static/js/main.fe902ddc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a622968a.css",
+    "static/js/main.fe902ddc.js"
+  ]
+}
