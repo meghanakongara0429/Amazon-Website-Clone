@@ -1,0 +1,240 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f3f3f3;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.primary-navbar {
+  background-color: #131921;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 0px 0px;
+  color: white;
+}
+
+.primary-navbar img {
+  height: 40px;
+  cursor: pointer;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.address p {
+  font-size: 12px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+}
+
+.address h5 {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: -19px;
+}
+
+.map-section {
+  height: 18px;
+  margin-right: 5px;
+}
+
+.search-section {
+  height: 40px;
+  width: 500px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+
+.searchimage {
+  right: 10px;
+  height: 25px;
+  cursor: pointer;
+}
+
+
+
+.cart-section img {
+  height: 40px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.accountbutton, .loginbutton, .signupbutton {
+  margin-left: 15px;
+}
+
+.accountbutton a, .loginbutton a, .signupbutton a {
+  text-decoration: none;
+}
+
+.loginbutton button,
+.signupbutton button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.loginbutton button {
+  background-color: #febd69;
+  color: black;
+}
+
+.signupbutton button {
+  background-color: #febd69;
+  color: black;
+}
+
+.secondary-navbar {
+  background-color: #37475a;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
+}
+
+.secondary-navbar h3 {
+  font-size: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.secondary-navbar h3:hover {
+  color: #febd69;
+}
+
+.menu {
+  height: 40px;
+  margin-right: 3px;
+  padding-left: 0px;
+  margin-left: 0px;
+  cursor: pointer;
+}
+.dp
+{
+  margin-right: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
+  height: 38px;
+  width: 660px;
+}
+
+.amazonlogo {
+  height: 40px;
+}
+
+.category {
+  margin-top: -350px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 50px;
+  width: 100%;
+}
+
+.box {
+  background-color: white;
+  height: 400px;
+  width: 25%;
+  margin: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.slide-content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.box-item {
+  width: 45%;
+}
+
+.innerbox h5 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.pname {
+  color: black;
+}
+
+.my-toast {
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+
+.discount {
+  background-color: #cc0c39 !important;
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  color: white;
+  font-size: 12px;
+}
+
+.mrp {
+  font-size: 12px !important;
+  color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .primary-navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-section {
+    width: 90%;
+  }
+
+  .cart-section img {
+    height: 30px;
+  }
+
+  .secondary-navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .secondary-navbar h3 {
+    margin: 5px;
+  }
+}
+.hero
+{
+  height: 600px;
+}
