@@ -13,6 +13,13 @@ This is a simple Amazon-style storefront clone built while learning React. It in
 - Cart page
 - Account details (fetched from API if `user_id` is present)
 
+### Recent Improvements
+- Amazon-like primary/secondary nav with accessible search
+- Search routes to `/products?q=...` and filters the list on the page
+- Consistent product grid layout with uniform card sizes
+- Cart badge shows live item count for logged-in users
+- Safer API calls with loading/error states to avoid runtime overlays
+
 ### Project Structure
 - `src/App.js`: App shell, router, context provider
 - `src/components/*`: Layout components like `Header`, `Footer`
@@ -31,6 +38,8 @@ Example `.env`:
 ```
 REACT_APP_API_BASE=https://amazon.indianhackerslab.com
 ```
+
+If the products API is unavailable, the products page shows a small set of mock items so the UI never looks empty.
 
 ### Available Scripts
 - `npm start`: Run locally in development
