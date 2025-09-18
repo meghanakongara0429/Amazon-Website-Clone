@@ -3,6 +3,7 @@ import axios from 'axios';
 import Rating from '@mui/material/Rating';
 import Skeleton from '@mui/material/Skeleton';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import userContext from './UserContext';
 import Checklogin from './Checklogin';
 import Toast from 'react-bootstrap/Toast';
@@ -16,6 +17,7 @@ const Productspage = () => {
     const userdata = useContext(userContext);
     const [products, changeProducts] = useState(null);
     const [loading, changeLoading] = useState(true);
+    const location = useLocation();
     const mockProducts = [
         {
             product_id: 'm1',
@@ -100,6 +102,11 @@ const Productspage = () => {
         FetchData();
     }, []);
 
+    const params = new URLSearchParams(location.search);
+    const q = (params.get('q') || '').toLowerCase();
+    const list = products && products.length > 0 ? products : mockProducts;
+    const filtered = q ? list.filter(p => `${p.name}`.toLowerCase().includes(q)) : list;
+
     const style = {
         position: 'absolute',
         top: '50%',
@@ -133,7 +140,7 @@ const Productspage = () => {
             </Modal>
 
             <div className='product-grid container'>
-                {(products && products.length > 0 ? products : mockProducts).map((product) => (
+                {filtered.map((product) => (
                     <div key={product.product_id} className='product-card shadow border'>
                         <div className='product-wish'><FavoriteBorderIcon className='text-danger' /></div>
                         <div className='product-image-wrap'>

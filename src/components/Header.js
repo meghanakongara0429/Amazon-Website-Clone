@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import logo from '../images/logo.jpg'
 import cart from '../images/cart.png'
 import country from '../images/country.png'
@@ -7,15 +7,40 @@ import dp from '../images/dp.png'
 import tl from '../images/tl.png'
 import search from '../images/search.png'
 import map from '../images/map.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import UserContext from '../pages/UserContext'
+import axios from 'axios'
 import Checklogin from '../pages/Checklogin'
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import OtherHousesIcon from '@mui/icons-material/OtherHouses';
 const Header = () => {
     const [loggedin, setLoggedin] = useState(Checklogin())
+    const userdata = useContext(UserContext)
+    const [cartCount, setCartCount] = useState(0)
+    const [searchQuery, setSearchQuery] = useState("")
+    const navigate = useNavigate()
     const Logout = () => {
         localStorage.setItem("user_id", null)
         window.location.reload()
+    }
+
+    const fetchCartCount = async () => {
+        try {
+            if (!userdata || !userdata.user_id) { setCartCount(0); return }
+            const data = new FormData()
+            data.append('user_id', userdata.user_id)
+            const API_BASE = process.env.REACT_APP_API_BASE || 'https://amazon.indianhackerslab.com'
+            const resp = await axios.post(`${API_BASE}/get-carts.php`, data, { headers: { 'Content-Type': 'multipart/form-data' } })
+            if (resp?.data?.status === 'success') setCartCount(resp.data.data?.length || 0)
+            else setCartCount(0)
+        } catch (e) { setCartCount(0) }
+    }
+
+    useEffect(() => { fetchCartCount() }, [userdata?.user_id, loggedin])
+
+    const onSearch = () => {
+        const q = searchQuery.trim()
+        navigate(q ? `/products?q=${encodeURIComponent(q)}` : '/products')
     }
 
     return (
@@ -36,8 +61,8 @@ const Header = () => {
                         <option>Books</option>
                         <option>Fashion</option>
                     </select>
-                    <input className='search-input' placeholder='Search Amazon' aria-label='Search' />
-                    <button className='search-btn' aria-label='Search'>
+                    <input value={searchQuery} onChange={e => setSearchQuery(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') { onSearch() } }} className='search-input' placeholder='Search Amazon' aria-label='Search' />
+                    <button onClick={onSearch} className='search-btn' aria-label='Search'>
                         <img src={search} className='searchimage' alt='search' />
                     </button>
                 </div>
@@ -51,7 +76,10 @@ const Header = () => {
                     <p className=' mb-0 '>Returns</p>
                     <h6 className=' ml-2 mt-0 '><b>& Orders</b></h6>
                 </div>
-                <Link to={'/cart'} className='cart-section'><img src={cart} alt='cart' /></Link>
+                <Link to={'/cart'} className='cart-section position-relative'>
+                    <img src={cart} alt='cart' />
+                    {cartCount > 0 && <span className='cart-badge'>{cartCount}</span>}
+                </Link>
 
                 {loggedin ? <div className='gap-5 d-flex'>
                     <div className='accountbutton'><Link to={'/account'}><AccountCircleRoundedIcon></AccountCircleRoundedIcon></Link></div>
