@@ -21,7 +21,7 @@ const Header = () => {
     return (
         <div className="Header w-100 gap-2 justify-content-between ">
             <div className='primary-navbar w-100 ' >
-                <Link to='/' aria-label="Go to Home">
+                <Link to='/' aria-label="Go to Home" className='logo-wrap'>
                     <img src={logo} alt="Amazon" className="amazonlogo" />
                 </Link>
                 <div className='address gap-0'>
@@ -29,18 +29,29 @@ const Header = () => {
                     <h5><img src={map} className='map-section' alt="location" />Update location</h5>
                 </div>
 
-                <input className='search-section' placeholder='Search Amazon' aria-label='Search' />
-                <img src={search} className='searchimage' alt='search' />
-                <img src={country} alt="country" />
-                <div className='justify-content-around'>
-                    <p className=' mb-0 '>Hello,sign in </p>
+                <div className='search-container'>
+                    <select className='search-category' aria-label='Search category'>
+                        <option>All</option>
+                        <option>Electronics</option>
+                        <option>Books</option>
+                        <option>Fashion</option>
+                    </select>
+                    <input className='search-input' placeholder='Search Amazon' aria-label='Search' />
+                    <button className='search-btn' aria-label='Search'>
+                        <img src={search} className='searchimage' alt='search' />
+                    </button>
+                </div>
+
+                <img src={country} alt="country" className='country-flag' />
+                <div className='nav-item'>
+                    <p className=' mb-0 '>Hello, sign in</p>
                     <b className='mt-0 p-2'>Account & Lists</b>
                 </div>
-                <div className=' justify-content-around '>
+                <div className='nav-item'>
                     <p className=' mb-0 '>Returns</p>
-                    <h6 className=' ml-2 mt-0 '><b>&Orders</b></h6>
+                    <h6 className=' ml-2 mt-0 '><b>& Orders</b></h6>
                 </div>
-                <Link to={'/cart'}><div className="cart-section"><img src={cart} alt='cart' /></div></Link>
+                <Link to={'/cart'} className='cart-section'><img src={cart} alt='cart' /></Link>
 
                 {loggedin ? <div className='gap-5 d-flex'>
                     <div className='accountbutton'><Link to={'/account'}><AccountCircleRoundedIcon></AccountCircleRoundedIcon></Link></div>
