@@ -84,11 +84,15 @@ code {
   cursor: pointer;
 }
 
-.accountbutton, .loginbutton, .signupbutton {
+.accountbutton,
+.loginbutton,
+.signupbutton {
   margin-left: 15px;
 }
 
-.accountbutton a, .loginbutton a, .signupbutton a {
+.accountbutton a,
+.loginbutton a,
+.signupbutton a {
   text-decoration: none;
 }
 
@@ -136,8 +140,8 @@ code {
   margin-left: 0px;
   cursor: pointer;
 }
-.dp
-{
+
+.dp {
   margin-right: 0px;
   padding-right: 0px;
   padding-left: 0px;
@@ -234,7 +238,56 @@ code {
     margin: 5px;
   }
 }
-.hero
-{
+
+.hero {
   height: 600px;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #232f3e;
+  color: #ddd;
+  margin-top: 40px;
+}
+
+.back-to-top {
+  text-align: center;
+  padding: 12px 0;
+  background-color: #37475a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 30px 20px;
+}
+
+.footer-links h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin: 6px 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.footer-links li:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
